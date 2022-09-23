@@ -1,0 +1,153 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+a {
+  color: #039be5;
+  text-decoration: underline;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+  background-image: none;
+  min-width: 320px;
+}
+@mixin h2 {
+  font-size: 3.0em;
+  text-align: center;
+  text-shadow: 0 0 7px #fff;
+  color: #fff;
+}
+@mixin blockquote {
+  font-size: 2.0em;
+  text-shadow: none;
+  text-align: center;
+  color: #fff;
+}
+.header {
+  height: 500px;
+  background: url('../img/top.png');
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 200px;
+  margin: 0 auto;
+}
+.header-cover {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.header-line {
+  background-color: #fff;
+  border-radius: 5px;
+  height: 5px;
+  width: 500px;
+}
+@media screen and (max-width:550px) {
+  .header-line {
+    width: 200px;
+  }
+  .header-down {
+    display: none;
+  }
+}
+.header-title {
+    @include h2();
+}
+.header-quote {
+  @include blockquote();
+}
+.header-down {
+  color: #fff;
+  font-size: 1.5em;
+  text-decoration: none;
+  transition: color 0.3 ease;
+}
+.header-down:active, .header-down:hover {
+  color: #9494ff;
+}
+.about-title {
+  padding-top: 100px;
+  font-weight: 800;
+  font-size: 2.5em;
+  text-align: center;
+  color: #000;
+}
+.about-line {
+  margin: 0 auto 20px;
+  background-color: #000;
+  border-radius: 5px;
+  height: 5px;
+  width: 100px;
+}
+.fa-vk {
+  color: #4f4fff;
+  margin-right: 5px;
+}
+iframe {
+  width: 100%;
+  height: 500px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: 1px #000;
+  border-radius: 5px;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 50px;
+}
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  /* фоновый цвет */
+  background: #fff;
+  z-index: 1001;
+}
+
+.preloader__image {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
